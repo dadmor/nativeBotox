@@ -55,25 +55,10 @@ const useBlocks = create<BlockStore>((set) => ({
     {
       id: 1,
       parentId: 0,
-      block: "layout/Grid",
+      block: "layout/Box",
       layout: null,
       post: "home",
-      attrs: {
-        columns: "",
-        colspan: "",
-        rowspan: "",
-        background: "",
-      },
-    },
-    {
-      id: 2,
-      parentId: 0,
-      block: "layout/Title",
-      layout: null,
-      post: "home",
-      attrs: {
-        text: "aaa",
-      },
+      attrs: {},
     },
   ],
   selectedBlockId: null,
