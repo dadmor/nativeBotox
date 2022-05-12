@@ -27,11 +27,18 @@ export const TabsPanel: React.FC = () => {
           Options
         </div>
       </div>
-      <div className="p-2 text-xs">
-        {composerTab === "pages" && <div>Empty panel</div>}
-        {composerTab === "components" && <div>Empty panel</div>}
-        {composerTab === "options" && <div>Options</div>}
-      </div>
+      {composerTab ? (
+        <div className="relative p-2 text-xs">
+          {composerTab === "pages" && <div>TODO</div>}
+          {composerTab === "components" && <div>TODO</div>}
+          {composerTab === "options" && <div>TODO</div>}
+        </div>
+      ) : (
+        <div className="border-t text-xs p-2 bg-yellow-200 text-yellow-800">
+          Click on workspece element to edit it!
+        </div>
+      )}
+
     </div>
   );
 };
