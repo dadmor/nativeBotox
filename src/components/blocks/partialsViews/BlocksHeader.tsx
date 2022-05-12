@@ -8,7 +8,9 @@ export const BlocksHeader: React.FC<Props> = ({ title }) => {
   return (
     <div className="flex justify-between bg-pink-600 text-white">
       <div
-        onClick={(e) => useBlocks.setState({ panel: "tabsPanel" })}
+        onClick={(e) =>
+          useBlocks.setState({ panel: "tabsPanel", selectedBlockId: null })
+        }
         className="border-r p-2 flex items-center cursor-pointer"
       >
         <FiChevronLeft />
