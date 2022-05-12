@@ -18,9 +18,6 @@ interface Props {
 const avilableBlocks: AvilableBlocksType = {
   layout: [
     {
-      block: "layout/Grid",
-    },
-    {
       block: "layout/Box",
     },
     {
