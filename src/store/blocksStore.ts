@@ -53,12 +53,17 @@ const useBlocks = create<BlockStore>((set) => ({
   components: {},
   blocks: [
     {
-      id: 1,
+      id: '7090c455-0fd6-4a43-b317-29fb4197ec55',
       parentId: 0,
       block: "layout/Box",
       layout: null,
-      post: "home",
-      attrs: {},
+      post: "home-page",
+      attrs: {
+        m:2,
+        p:2,
+        text:"NativeBotox",
+        alignSelf:"center"
+      },
     },
   ],
   selectedBlockId: null,
