@@ -46,7 +46,7 @@ interface BlockStore {
 
 const useBlocks = create<BlockStore>((set) => ({
   panel: "tabsPanel",
-  composerTab: "page",
+  composerTab: "",
   insertBlocksType: "layout",
   preview: false,
   replace: false,
