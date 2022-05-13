@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { FiCode } from "react-icons/fi";
 import { useConsole } from "store/consoleStore";
-import { avilableBlocks } from "data/nativeBaseComponents";
+import { avilableBlocks, BaseBlocks } from "data/nativeBaseComponents";
 import { properties } from "data/nativeBaseProperties";
 
 export const Console: React.FC = () => {
   const [tip, setTip] = useState(false);
-  const [foundCommands, findCommands] = useState([]);
+  const [foundCommands, findCommands] = useState<BaseBlocks>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const command: string = useConsole((state) => state.command);
@@ -16,12 +16,12 @@ export const Console: React.FC = () => {
   const dictionary = [
     ...Object.values(avilableBlocks).flat(),
     ...Object.values(properties),
-  ];
+  ] as BaseBlocks;
 
-  function find(items, text) {
-    text = text.split(" ");
+  function find(items:BaseBlocks, text:string) {
+    const splited = text.split(" ");
     return items.filter((item) => {
-      return text.every((el) => {
+      return splited.every((el) => {
         return (item.label.toLowerCase() + item.block).includes(el);
       });
     });
@@ -108,7 +108,7 @@ export const Console: React.FC = () => {
         <div className="absolute z-20 shadow flex py-2 flex-col gap-2 bottom-14 w-max text-xs">
           {command == "help" || command == "?" ? (
             <>
-              <div className="px-2">Just start typing...</div>
+              <div className="px-2">Dont click only just start typing...</div>
               <div className="bg-pink-400 text-white px-2 p-2">Commands</div>
               <div className="px-2">add:$blockname:child</div>
               <div className="px-2">add:$blockname:slibling</div>
