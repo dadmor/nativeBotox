@@ -106,7 +106,7 @@ export const Console: React.FC = () => {
       </div>
       {tip && (
         <div className="absolute z-20 shadow flex py-2 flex-col gap-2 bottom-14 w-max text-xs">
-          {command == "help" ? (
+          {command == "help" || command == "?" ? (
             <>
               <div className="px-2">Just start typing...</div>
               <div className="bg-pink-400 text-white px-2 p-2">Commands</div>
