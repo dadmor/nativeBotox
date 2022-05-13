@@ -17,5 +17,5 @@ One of fastest way to test mobile mockup on final enviroment
 
 ------------------
 created with:
-mpn 6.14.16
+npm 6.14.16
 yarn 1.22.17
