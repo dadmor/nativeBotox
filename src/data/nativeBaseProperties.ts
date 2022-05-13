@@ -1,10 +1,10 @@
 export const properties: any = {
   // ---------------
-  text: {
+  innerText: {
     label: "Inner text",
     type: "string",
     default: "Lorem ipsum....",
-    block: "text"
+    block: "innerText"
   },
     alignSelf: {
       label: "Align self",
@@ -17,6 +17,12 @@ export const properties: any = {
       type: "string",
       default: "center",
       block: "alignItems"
+    },
+    border: {
+      label: "Border",
+      type: "string",
+      default: "px",
+      block: "border"
     },
     borderColor: {
       label: "Border color",
@@ -158,9 +164,15 @@ export const properties: any = {
     },
     shadow: {
       label: "Shadow",
-      type: "number",
-      default: 2,
+      type: "string",
+      default: 'md',
       block: "shadow"
+    },
+    text: {
+      label: "Text color",
+      type: "string",
+      default: 'blue.600',
+      block: "text"
     },
     w: {
       label: "Width",
