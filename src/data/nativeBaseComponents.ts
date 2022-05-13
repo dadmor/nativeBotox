@@ -8,80 +8,80 @@ type AvilableBlocksType = Record<InsertBlocksType, BaseBlocks>;
 export const avilableBlocks: any = {
   layout: [
     {
-      label: "Box",
+      label: "Box block",
       block: "layout/Box",
       type:"block"
     },
     {
-      label: "Center",
+      label: "Center block",
       block: "layout/Center",
       type:"block"
     },
     {
-      label: "Container",
+      label: "Container block",
       block: "layout/Container",
       type:"block"
     },
     {
-      label: "Flex",
+      label: "Flex block",
       block: "layout/Flex",
       type:"block"
     },
     {
-      label: "HStack",
+      label: "HStack block",
       block: "layout/HStack",
       type:"block"
     },
     {
-      label: "Stack",
+      label: "Stack block",
       block: "layout/Stack",
       type:"block"
     },
     {
-      label: "VStack",
+      label: "VStack block",
       block: "layout/VStack",
       type:"block"
     },
     {
-      label: "ZStack",
+      label: "ZStack block",
       block: "layout/ZStack",
       type:"block"
     },
   ],
   typo: [
     {
-      label: "Heading",
+      label: "Heading block",
       block: "typo/Heading",
       type:"block"
     },
     {
-      label: "Text",
+      label: "Text  block",
       block: "typo/Text",
       type:"block"
     },
   ],
   forms: [
     {
-      label: "Button",
+      label: "Button block",
       block: "forms/Button",
       type:"block"
     },
     {
-      label: "Pressable",
+      label: "Pressable block",
       block: "forms/Pressable",
       type:"block"
     },
   ],
   native: [
     {
-      label: "Button",
+      label: "Button block",
       block: "forms/Button",
       type:"block"
     },
   ],
   rest: [
     {
-      label: "Button",
+      label: "Button block",
       block: "forms/Button",
       type:"block"
     },

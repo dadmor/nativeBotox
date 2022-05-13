@@ -15,31 +15,37 @@ export const properties: any = {
       label: "Border color",
       type: "string",
       default: "gray.500",
-      block: ""
+      block: "borderColor"
     },
     bg: {
       label: "Background",
       type: "string",
       default: "gray.500",
-      block: ""
+      block: "bg"
+    },
+    flex: {
+      label: "Flex display",
+      type: "string",
+      default: "1",
+      block: "flex"
     },
     fontSize: {
       label: "Font size",
       type: "string",
       default: "xs",
-      block: ""
+      block: "fontSize"
     },
     h: {
       label: "Height",
       type: "string",
       default: "100%",
-      block: ""
+      block: "h"
     },
     justifyContent: {
       label: "Justify content",
       type: "string",
       default: "space-between",
-      block: ""
+      block: "justifyContent"
     },
     m: {
       label: "Margin",
