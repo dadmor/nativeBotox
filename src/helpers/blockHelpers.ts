@@ -1,14 +1,31 @@
 export const parseCss = (attrs: any) => {
   return `
-  ${attrs.bg ? " bg-" + attrs.bg.replace('.', '-') : ""}
+  ${attrs.bg ? " bg-" + attrs.bg.replace(".", "-") : ""}
+  ${attrs.text ? " text-" + attrs.text.replace(".", "-") : ""}
   ${attrs.alignSelf ? " self-" + attrs.alignSelf : ""}
   ${attrs.alignItems ? " items-" + attrs.alignItems : ""}
   ${attrs.justifyContent ? " justify-" + attrs.justifyContent : ""}
   ${attrs.rounded ? " rounded-" + attrs.rounded : ""}
+  ${attrs.fontSize ? " text-" + attrs.fontSize : ""}
   ${attrs.flex ? " flex-" + attrs.flex : ""}
   ${attrs.direction ? " flex-" + attrs.direction : "flex-col"}
+  ${attrs.alignSelf ? " self-" + attrs.alignSelf : ""}
+  ${
+    attrs.shadow
+      ? attrs.shadow == "xs"
+        ? "shadow"
+        : "shadow-" + attrs.shadow
+      : ""
+  }
+  ${
+    attrs.border
+      ? attrs.border == "px"
+        ? "border"
+        : "border-" + attrs.border
+      : ""
+  }
   ${attrs.w ? " w-" + attrs.w : ""}
-  ${attrs.h && attrs.h.slice(-1) != '%' ? " h-" + attrs.h : ""}
+  ${attrs.h && attrs.h.slice(-1) != "%" ? " h-" + attrs.h : ""}
   ${attrs.p ? " p-" + attrs.p : ""}
   ${attrs.px ? " px-" + attrs.px : ""}
   ${attrs.py ? " py-" + attrs.py : ""}
@@ -26,10 +43,7 @@ export const parseCss = (attrs: any) => {
   `.trim();
 };
 
-export const parseStyle = (attrs: any) => {
-
-}
-
+export const parseStyle = (attrs: any) => {};
 
 export const prevStyle = (preview: boolean) => {
   return !preview
