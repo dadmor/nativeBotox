@@ -104,10 +104,10 @@ export const BlockControlls: React.FC = () => {
             <FiArrowDown />
             <span className="ml-2">Insert sibling</span>
           </Button>
-          <Button onClick={(e) => useBlocks.setState({ replace: true })}>
+          {/* <Button onClick={(e) => useBlocks.setState({ replace: true })}>
             <FiExternalLink />
             <span className="ml-2">Teleport block</span>
-          </Button>
+          </Button> */}
           <Button
             type="error"
             onClick={(e) => {
