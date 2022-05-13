@@ -9,9 +9,9 @@ export const PropertiesList: React.FC = () => {
   const block = () => blocks.find((x) => x.id === selectedBlockId);
 
   return (
-    <div>
+    <div className="h-full flex flex-col">
       <BlocksHeader title={block()?.block || ""} />
-      <div className="py-2 text-xs">
+      <div className="py-2 text-xs flex-1 overflow-y-scroll">
         <div className="px-2 pb-2 text-lg border-b">Properties list</div>
         {Object.keys(properties).map((key, index) => {
           return (
