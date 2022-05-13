@@ -78,7 +78,7 @@ export const Console: React.FC = () => {
         useConsole.setState({ command: `TODO:create block as child` });
       }
 
-      if (split[0] == "add" && split[2] == "child") {
+      if (split[0] == "add" && split[2] == "slibling") {
         useConsole.setState({ command: `TODO:create block as slibling` });
       }
     }
@@ -103,7 +103,6 @@ export const Console: React.FC = () => {
         ) : (
           <span>type: help</span>
         )}
-       
       </div>
       {tip && (
         <div className="absolute z-20 shadow flex py-2 flex-col gap-2 bottom-14 w-max text-xs">
@@ -111,10 +110,10 @@ export const Console: React.FC = () => {
             <>
               <div className="px-2">Just start typing...</div>
               <div className="bg-pink-400 text-white px-2 p-2">Commands</div>
-              <div className="px-2">name:value = set or edit prop</div>
-              <div className="px-2">setc:name = insert children</div>
-              <div className="px-2">sets:name = insert slibling</div>
-              <div className="px-2">help = more about commands</div>
+              <div className="px-2">add:$blockname:child</div>
+              <div className="px-2">add:$blockname:slibling</div>
+              <div className="px-2">set:$propertyname</div>
+              <div className="px-2">help</div>
               <div className="bg-pink-400 text-white px-2 p-2">Keys</div>
               <div className="px-2">
                 Tab: is typing autoselect <br />

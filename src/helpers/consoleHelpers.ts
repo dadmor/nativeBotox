@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
 
 
-export const consoleKeyDown = (e: any, useConsoleCommand) => {
+export const consoleKeyDown = (e: any, command) => {
+ 
   
   switch (e.key) {
     case "Alt":
@@ -21,6 +22,9 @@ export const consoleKeyDown = (e: any, useConsoleCommand) => {
     case "Backspace":
       return {runCommand:e.key, stamp:uuidv4(), command:''};
     default:
-      return {command: useConsoleCommand+e.key};
+      // command += e.key;
+     
+       e.key;
+      return {command:command+e.key};
   }
 };
