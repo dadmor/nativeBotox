@@ -1,24 +1,33 @@
 import { useEffect, useState } from "react";
 import { FiCode } from "react-icons/fi";
 import { useConsole } from "store/consoleStore";
+import { useBlocks } from "store/blocksStore";
 import { avilableBlocks, BaseBlocks } from "data/nativeBaseComponents";
 import { properties } from "data/nativeBaseProperties";
+import { v4 as uuidv4 } from "uuid";
 
 export const Console: React.FC = () => {
   const [tip, setTip] = useState(false);
   const [foundCommands, findCommands] = useState<BaseBlocks>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(0);
 
   const command: string = useConsole((state) => state.command);
   const runCommand: string = useConsole((state) => state.runCommand);
   const stamp: string = useConsole((state) => state.stamp);
+
+  const blocks = useBlocks((state) => state.blocks);
+  const selectedBlockId = useBlocks((state) => state.selectedBlockId);
+  const block = () => blocks.find((x) => x.id === selectedBlockId);
+  const addBlock = useBlocks((state) => state.addBlock);
+  const setBlockAttrs = useBlocks((state) => state.setBlockAttrs);
 
   const dictionary = [
     ...Object.values(avilableBlocks).flat(),
     ...Object.values(properties),
   ] as BaseBlocks;
 
-  function find(items:BaseBlocks, text:string) {
+  function find(items: BaseBlocks, text: string) {
     const splited = text.split(" ");
     return items.filter((item) => {
       return splited.every((el) => {
@@ -58,7 +67,11 @@ export const Console: React.FC = () => {
         });
       } else {
         useConsole.setState({
-          command: `set:${foundCommands[selectedIndex]?.block}`,
+          command: `set:${
+            foundCommands[selectedIndex]?.block
+              ? foundCommands[selectedIndex]?.block
+              : ""
+          }`,
         });
       }
 
@@ -67,40 +80,50 @@ export const Console: React.FC = () => {
         useConsole.setState({
           command: `add:${foundCommands[selectedIndex]?.block}:${foundCommands[selectedIndex]?.type}`,
         });
+        addBlock({
+          id: uuidv4(),
+          parentId:
+            foundCommands[selectedIndex]?.type === "child"
+              ? block()?.id
+              : block()?.parentId,
+          block: split[1],
+          attrs: {},
+          layout: "",
+          post: "",
+        });
       }
 
       // try run command
       if (split[0] == "set") {
-        useConsole.setState({ command: `TODO:insert or update prop` });
-      }
-
-      if (split[0] == "add" && split[2] == "child") {
-        useConsole.setState({ command: `TODO:create block as child` });
-      }
-
-      if (split[0] == "add" && split[2] == "slibling") {
-        useConsole.setState({ command: `TODO:create block as slibling` });
+        setBlockAttrs({
+          key: split[1],
+          value: split[2],
+        });
       }
     }
+
     if (runCommand == "ArrowDown") {
       setSelectedIndex(selectedIndex + 1);
     }
+
     if (runCommand == "ArrowUp") {
       setSelectedIndex(selectedIndex - 1);
     }
+
+    if (runCommand == "Tab") {
+      setTabIndex(tabIndex >= blocks.length - 1 ? 0 : tabIndex + 1);
+      useBlocks.setState({ selectedBlockId: blocks[tabIndex]?.id });
+    }
   }, [stamp]);
 
-  // useEffect(() => {
-  // TODO run command directly
-  //   }
-  // }, [runCommand]);
-
   return (
-    <div className="absolute flex items-center left-2 bottom-2 bg-white text-blue-600 shadow">
+    <div className="absolute flex items-center left-2 bottom-2 bg-white text-gray-600 shadow">
       <div className="absolute z-10 bottom-9 w-max text-xs text-pink-400 font-mono">
         {!command && runCommand ? (
           <span>Last run: {runCommand}</span>
         ) : (
+          command.split(":")[0] == 'set' ?
+          <span>syntax set:propName:value</span> :
           <span>type: help</span>
         )}
       </div>
@@ -108,7 +131,7 @@ export const Console: React.FC = () => {
         <div className="absolute z-20 shadow flex py-2 flex-col gap-2 bottom-14 w-max text-xs">
           {command == "help" || command == "?" ? (
             <>
-              <div className="px-2">Dont click only just start typing...</div>
+              <div className="px-2">Dont click, just start typing...</div>
               <div className="bg-pink-400 text-white px-2 p-2">Commands</div>
               <div className="px-2">add:$blockname:child</div>
               <div className="px-2">add:$blockname:slibling</div>
@@ -126,6 +149,9 @@ export const Console: React.FC = () => {
             </>
           ) : command != "" ? (
             <>
+              {foundCommands.length != 0 && (
+                <div className="p-2 text-gray-600">Use arrows</div>
+              )}
               {foundCommands.map((el, i) => {
                 return (
                   <div
@@ -146,7 +172,11 @@ export const Console: React.FC = () => {
         </div>
       )}
       <div
-        onClick={() => setTip(!tip)}
+        onClick={() =>
+          useConsole.setState({
+            command: "help",
+          })
+        }
         className="border-1 p-2 bg-pink-600 text-white cursor-pointer"
       >
         <FiCode />
