@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-export const consoleKeyDown = (e: any, command) => {
+export const consoleKeyDown = (e: any, command:string) => {
   switch (e.key) {
     case "Alt":
     case "ArrowUp":
