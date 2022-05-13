@@ -1,134 +1,160 @@
 export const properties: any = {
     alignSelf: {
-      label: "align self",
+      label: "Align self",
       type: "string",
       default: "center",
+      block: "alignSelf"
     },
     alignItems: {
-      label: "align items",
+      label: "Align items",
       type: "string",
       default: "center",
+      block: "alignItems"
     },
     borderColor: {
-      label: "border color",
+      label: "Border color",
       type: "string",
       default: "gray.500",
+      block: ""
     },
     bg: {
-      label: "background",
+      label: "Background",
       type: "string",
       default: "gray.500",
+      block: ""
     },
     fontSize: {
-      label: "font size",
+      label: "Font size",
       type: "string",
       default: "xs",
+      block: ""
     },
     h: {
-      label: "height",
+      label: "Height",
       type: "string",
       default: "100%",
+      block: ""
     },
     justifyContent: {
-      label: "justify content",
+      label: "Justify content",
       type: "string",
       default: "space-between",
+      block: ""
     },
     m: {
-      label: "margin",
+      label: "Margin",
       type: "number",
       default: 2,
+      block: "m"
     },
     ml: {
-      label: "margin left",
+      label: "Margin left",
       type: "number",
       default: 2,
+      block: "ml"
     },
     mr: {
-      label: "margin right",
+      label: "Margin right",
       type: "number",
       default: 2,
+      block: "mr"
     },
     mt: {
-      label: "margin top",
+      label: "Margin top",
       type: "number",
       default: 2,
+      block: "mt"
     },
     mb: {
-      label: "margin bottom",
+      label: "Margin bottom",
       type: "number",
       default: 2,
+      block: "mb"
     },
     mx: {
-      label: "margin horizontal",
+      label: "Margin horizontal",
       type: "number",
       default: 2,
+      block: "mx"
     },
     my: {
-      label: "margin vertical",
+      label: "Margin vertical",
       type: "number",
       default: 2,
+      block: "my"
     },
     p: {
-      label: "padding",
+      label: "Padding",
       type: "number",
       default: 2,
+      block: "p"
     },
     pl: {
-      label: "padding left",
+      label: "Padding left",
       type: "number",
       default: 2,
+      block: "pl"
     },
     pr: {
-      label: "padding right",
+      label: "Padding right",
       type: "number",
       default: 2,
+      block: "pr"
     },
     pt: {
-      label: "padding top",
+      label: "Padding top",
       type: "number",
       default: 2,
+      block: "pt"
     },
     pb: {
-      label: "padding bottom",
+      label: "Padding bottom",
       type: "number",
       default: 2,
+      block: "pb"
     },
     px: {
-      label: "padding horizontal",
+      label: "Padding horizontal",
       type: "number",
       default: 2,
+      block: "px"
     },
     py: {
-      label: "padding vertical",
+      label: "Padding vertical",
       type: "number",
       default: 2,
+      block: "py"
     },
     position: {
-      label: "position",
+      label: "Position",
       type: "string",
       default: "absolue",
+      block: "position"
     },
     rounded: {
-      label: "rounded/border radius",
+      label: "Rounded/border radius",
       type: "string",
       default: "lg",
+      block: "rounded"
     },
     shadow: {
-      label: "shadow",
+      label: "Shadow",
       type: "number",
       default: 2,
+      block: "shadow"
     },
     w: {
-      label: "width",
+      label: "Width",
       type: "string",
       default: "100%",
+      block: "w"
     },
 
     // ---------------
     text: {
-      label: "inner text",
+      label: "Inner text",
       type: "string",
       default: "Lorem ipsum....",
+      block: "text"
     },
   };

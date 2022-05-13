@@ -1,59 +1,26 @@
-let command = "";
-const valut: { type: string; command: string } = {
-  type: "",
-  command: "",
-};
-export const consoleKeyDown = (e: any) => {
+import { v4 as uuidv4 } from "uuid";
+
+
+export const consoleKeyDown = (e: any, useConsoleCommand) => {
+  
   switch (e.key) {
+    case "Alt":
+    case "ArrowUp":
+    case "ArrowDown":
+    case "ArrowRight":
+    case "ArrowLeft":
+    case "CapsLock":
+    case "Control":
+    case "Shift":
+      return {runCommand:e.key, stamp:uuidv4()};
     case "Tab":
       e.preventDefault();
-      valut.type = "Tab";
-      valut.command = command;
-      return valut;
-    case "ArrowUp":
-      valut.type = "ArrowUp";
-      valut.command = command;
-      return valut;
-    case "ArrowDown":
-      valut.type = "ArrowDown";
-      valut.command = command;
-      return valut;
-    case "ArrowRight":
-      valut.type = "ArrowRight";
-      valut.command = command;
-      return valut;
-    case "Alt":
-      valut.type = "Alt";
-      valut.command = command;
-      return valut;
-    case "Shift":
-      valut.type = "Shift";
-      valut.command = command;
-      return valut;
-      case "CapsLock":
-        valut.type = "Shift";
-        valut.command = command;
-        return valut;
-    case "Control":
-      valut.type = "ArrowUp";
-      valut.command = command;
-      return valut;
+      return {runCommand:e.key, stamp:uuidv4()};
     case "Enter":
-      valut.type = "Enter";
-      command = "";
-      valut.command = command;
-
-      return valut;
+      return {runCommand:e.key, stamp:uuidv4()};
     case "Backspace":
-      valut.type = "Backspace";
-      command = "";
-      valut.command = command;
-
-      return valut;
+      return {runCommand:e.key, stamp:uuidv4(), command:''};
     default:
-      command += e.key;
-      valut.type = "command";
-      valut.command = command;
-      return valut;
+      return {command: useConsoleCommand+e.key};
   }
 };

@@ -6,17 +6,14 @@ import { consoleKeyDown } from "helpers/consoleHelpers";
 
 const Home: React.FC = () => {
   const blocks = useBlocks((state) => state.blocks);
-
-  const consoleKeyDownHandler = (e:any) => {
-    const key = consoleKeyDown(e)
-    useConsole.setState({ command: key.command })
-  }
-  
+  const command = useConsole((state) => state.command);
   return (
     blocks && (
       // Keyboard events handling layer (for internal console)
       <div
-        onKeyDown={(e: React.SyntheticEvent<EventTarget>) => consoleKeyDownHandler(e)}
+        onKeyDown={(e: React.SyntheticEvent<EventTarget>) =>
+          useConsole.setState(consoleKeyDown(e, command))
+        }
         contentEditable={true}
       >
         {/* // Unmounted editable content layer dirty hack */}
@@ -42,4 +39,7 @@ const Home: React.FC = () => {
     )
   );
 };
+/* #DisablePrerenderer */
+// @ts-ignore
+Home.getInitialProps = () => ({});
 export default Home;
