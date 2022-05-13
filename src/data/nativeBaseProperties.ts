@@ -1,4 +1,11 @@
 export const properties: any = {
+  // ---------------
+  text: {
+    label: "Inner text",
+    type: "string",
+    default: "Lorem ipsum....",
+    block: "text"
+  },
     alignSelf: {
       label: "Align self",
       type: "string",
@@ -22,6 +29,12 @@ export const properties: any = {
       type: "string",
       default: "gray.500",
       block: "bg"
+    },
+    direction: {
+      label: "Flex direction",
+      type: "string",
+      default: "row",
+      block: "direction"
     },
     flex: {
       label: "Flex display",
@@ -156,11 +169,5 @@ export const properties: any = {
       block: "w"
     },
 
-    // ---------------
-    text: {
-      label: "Inner text",
-      type: "string",
-      default: "Lorem ipsum....",
-      block: "text"
-    },
+    
   };
