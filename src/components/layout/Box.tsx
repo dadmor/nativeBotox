@@ -6,7 +6,7 @@ const Box: React.FC<CommonComponentProps> = memo(({ attrs, children }) => {
   const css = parseCss(attrs);
   return (
     <div style={prevStyle(preview)} className={`relative flex flex-col  ${css}`}>
-      {attrs.text && <span>{attrs.text}</span>}
+      {attrs.innerText && <span>{attrs.innerText}</span>}
       {children}
     </div>
   );

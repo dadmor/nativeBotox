@@ -7,7 +7,7 @@ const Center: React.FC<CommonComponentProps> = memo(({ attrs, children }) => {
   return (
     <div style={prevStyle(preview)} className={`relative ${css}`}>
       <div className="grid justify-center items-center">
-        {attrs.text && <span>{attrs.text}</span>}
+        {attrs.innerText && <span>{attrs.innerText}</span>}
         {children}
       </div>
     </div>
